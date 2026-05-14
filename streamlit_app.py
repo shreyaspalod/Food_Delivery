@@ -418,7 +418,7 @@ with tab3:
         line=dict(color="#7C3AED", width=2.5, dash="dash"),
         marker=dict(size=8, symbol="diamond")
     ))
-    fig_fc.add_vline(x=city_daily["date"].max().strftime("%Y-%m-%d"),
+    fig_fc.add_vline(x=city_daily["date"].max().timestamp() * 1000,
                      line_dash="dot", line_color="gray",
                      annotation_text="Forecast →", annotation_position="top left")
     fig_fc.update_layout(
