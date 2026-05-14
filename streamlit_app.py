@@ -314,12 +314,11 @@ with tab2:
     st.markdown("*Each city's demand by hour, normalised 0–100 so shapes are comparable regardless of city size.*")
 
     city_hour_pivot = filt.groupby(["city","hour"]).size().reset_index(name="orders")
-    def normalise(grp):
-        mn, mx = grp["orders"].min(), grp["orders"].max()
-        grp = grp.copy()
-        grp["norm"] = (grp["orders"]-mn)/(mx-mn+1e-9)*100
-        return grp
-    city_hour_norm = city_hour_pivot.groupby("city", group_keys=False).apply(normalise)
+    # Vectorised normalisation — avoids pandas 2.x groupby/apply column-drop issue
+    _min = city_hour_pivot.groupby("city")["orders"].transform("min")
+    _max = city_hour_pivot.groupby("city")["orders"].transform("max")
+    city_hour_norm = city_hour_pivot.copy()
+    city_hour_norm["norm"] = (city_hour_norm["orders"] - _min) / (_max - _min + 1e-9) * 100
 
     fig_fp = px.line(city_hour_norm, x="hour", y="norm", color="city",
                      color_discrete_map=city_color,
