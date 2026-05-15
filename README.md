@@ -1,7 +1,7 @@
 # Case 3: Food Delivery Demand Pulse
 
-**Live demo:** https://huggingface.co/spaces/YOUR_USERNAME/case3-demand-pulse  
-**Repo:** https://github.com/YOUR_USERNAME/case3-demand-pulse  
+**Live demo:** https://fooddelivery-c2lfcvgqjtgck59i8t7jhi.streamlit.app/
+**Repo:** https://github.com/shreyaspalod/Food_Delivery 
 **Demo video:** *(add Loom/YouTube link here)*
 
 ## What this is
