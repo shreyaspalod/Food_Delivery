@@ -11,7 +11,7 @@ An interactive Streamlit dashboard that reveals when food delivery demand truly 
 ## How to run locally
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/case3-demand-pulse.git
+git clone https://github.com/shreyaspalod/Food_Delivery
 cd case3-demand-pulse
 pip install -r requirements.txt
 # Copy case3_food_delivery_orders.csv into the same folder
